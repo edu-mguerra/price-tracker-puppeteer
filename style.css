@@ -1,0 +1,136 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7fa; 
+    color: #333; 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50; 
+    margin-top: 40px;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+
+#search {
+    padding: 12px 20px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 400px;
+    font-size: 16px;
+    border: 2px solid #3498db; 
+    border-radius: 50px;
+    outline: none;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#search:focus {
+    border-color: #2980b9; 
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.4);
+}
+
+#searchButton {
+    background-color: #3498db; 
+    color: white;
+    font-size: 16px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 10%;
+    max-width: 400px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#searchButton:hover {
+    background-color: #2980b9; 
+}
+
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px;
+    margin-top: 20px;
+    color: #ecf0f1;
+}
+
+
+.product-card {
+    width: 220px;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: black;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #ecf0f1;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.product-title {
+    font-size: 1.2rem;
+    margin: 15px 0;
+    font-weight: 600;
+    color: white; 
+}
+
+.product-price {
+    font-size: 14px;
+    color: #7f8c8d; 
+    margin-bottom: 10px;
+}
+
+.product-link {
+    text-decoration: none;
+    color: #3498db;
+    font-size: 14px;
+    display: inline-block;
+    margin-top: 12px;
+    font-weight: 600;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.product-link:hover {
+    color: #2980b9;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .product-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-card {
+        width: 90%;
+    }
+
+    #search, #searchButton {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .product-card {
+        width: 100%;
+    }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Produtos</title>
+</head>
+<body>
+  <input type="text" id="search" placeholder="Digite o produto" />
+  <button id="searchButton">Buscar</button> 
+  <h1>Produtos Encontrados</h1>
+  <div class="product-list" id="product-list">
+  
+  </div>
+
+  <script>
+    async function loadProducts(productName) {
+      const response = await fetch(`http://localhost:3000/products?productName=${productName}`);
+      const products = await response.json();
+      
+      const productList = document.getElementById('product-list');
+      productList.innerHTML = '';
+
+      products.forEach((product, index) => {
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+        productCard.id = `product-${index}`;
+        productCard.innerHTML = `
+          <h3 class="product-title">${product.title}</h3>
+          <p class="product-price">Preço: R$ ${product.price.toFixed(2)}</p>
+          <a href="${product.link}" class="product-link" target="_blank">Ver Produto</a>
+        `;
+        productList.appendChild(productCard);
+      });
+    }
+
+    function searchProducts() {
+      const productName = document.querySelector('#search').value;
+      if (productName) {
+        loadProducts(productName);
+      } else {
+        alert("Digite um produto para buscar!");
+      }
+    }
+
+    document.getElementById('searchButton').addEventListener('click', searchProducts);
+  </script>
+</body>
+</html>
